@@ -20,3 +20,5 @@ app.register_blueprint(message)
 app.register_blueprint(account)
 app.register_blueprint(profile)
 
+if __name__ == "__main__":
+    app.run(debug=True)
