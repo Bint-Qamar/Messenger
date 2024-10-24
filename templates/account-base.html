@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup-login-style.css')}}" />
+    <!-- Font Awesome CDN link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title"><span>{% block label %}{% endblock %}</span></div>
+            <form action="#" method="post">
+
+                {% block content %}{% endblock %}
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <div class="row">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" name="email" value="{{email if email}}" placeholder="Email" required />
+                </div>
+
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="showPassword" name="password" value="{{ password if password}}" placeholder="Password" required
+                        minlength="8" maxlength="100" />
+                    </div>
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                
+                {% block submit %}{% endblock %}
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() 
+        {
+            var x = document.getElementById("showPassword");
+            if (x.type === "password") 
+            {
+                x.type = "text";
+            } 
+            else 
+            {
+                x.type = "password";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

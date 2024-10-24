@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+    <div class="center">
+        <h2> <span style="color: grey;">Name:</span> {{username}}</h2> 
+        <h3> <span style="color: grey;">Email:</span> {{useremail}}</h3>
+        
+        <div class="divider"></div>
+
+        <a href="{{url_for('account.logout')}}" style="color: red;">Log out</a><br>
+        <a href="{{url_for('account.delete_account')}}" style="color: red;">Delete Account</a><br>
+        <a href="{{url_for('message.delete_all_msgs')}}" style="color: red;">Delete All Messages</a>
+
+    </div>
+
+{% endblock %}
+

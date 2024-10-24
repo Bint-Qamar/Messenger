@@ -1,0 +1,22 @@
+{% extends "account-base.html" %}
+
+{% block title %}Create Account{% endblock %}
+
+{% block label %}Create Account{% endblock %}
+
+{% block content %}
+  <div>
+    <div class="row">
+      <i class="fas fa-user"></i>
+      <input type="text" name="user" value="{{ user if user }}" placeholder="Username" required minlength="2" maxlength="20" />
+    </div>
+{% endblock %}
+
+{% block submit %}
+  </div>
+  <div class="signup-link" style="padding: 10px 0px 0px 100px ;">Have an account? <a href="{{url_for('account.login')}}">Log in </a></div>
+    <div class="row button">
+      <input type="submit" value="Create Account" />
+    </div>
+</div>
+{% endblock %}
