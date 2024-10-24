@@ -15,7 +15,7 @@ class User(Base):
     email = Column("email", String, nullable = False)
     password = Column("password", String, nullable = False)
 
-    def app(self, name, email, password):
+    def __init__(self, name, email, password):
         last_user = Session.query(User).order_by(User.id.desc()).first()
         
         self.id= last_user.id + 1 if last_user != None else 1
@@ -36,7 +36,7 @@ class Message(Base):
     date = Column("date", String, nullable = False)
     time = Column("time", String, nullable = False)
 
-    def app(self, content, writer):
+    def __init__(self, content, writer):
         last_msg = Session.query(Message).order_by(Message.id.desc()).first()
         date = datetime.now()
 
